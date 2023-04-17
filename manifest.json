@@ -16,7 +16,7 @@
    "version": "1.3",
    "web_accessible_resources": [ 
       {
-         "matches": [ "https://*.atlassian.net/jira/*" ],
+         "matches": [ "https://*.atlassian.net/*" ],
          "resources": [ "script.js" ]
       }
   ]

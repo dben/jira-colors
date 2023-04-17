@@ -1,10 +1,29 @@
 function loadCustomCss() {
-    for (item in document.getElementsByClassName("ghx-card-color-enabled")) {
-        var color = item..getElementsByClassName('ghx-grabber')[0].style.backgroundColor;
+    var mode = document.getElementsByTagName('html')[0].dataset.colorMode;
+    var items = Array.from(document.getElementsByClassName("ghx-card-color-enabled"))
+    for (idx in items) {
+        var color = items[idx].getElementsByClassName('ghx-grabber')[0].style.backgroundColor;
         if (color != undefined) {
-            item.style.backgroundColor = shade(color, 0.90);
+          if (mode == "dark") {
+                Array.from(items[idx].getElementsByClassName('ghx-field')).forEach(function (item) {
+                    item.style.color = "#000";
+                });
+                Array.from(items[idx].getElementsByClassName('ghx-summary')).forEach(function (item) {
+                    item.style.color = "#333";
+                });
+                Array.from(items[idx].getElementsByClassName('ghx-extra-field')).forEach(function (item) {
+                    item.style.color = "#333";
+                });
+
+                Array.from(items[idx].getElementsByClassName('ghx-key')).forEach(function (item) {
+                    item.style.color = "#333";
+                });
+            }
+            items[idx].style.backgroundColor = shade(color, 0.90);
         }
-    }    
+
+       
+    }
 }
 
 function shadeRGBColor(color, percent) {
